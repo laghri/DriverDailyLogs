@@ -1,0 +1,38 @@
+# --- PYTHON / DJANGO ---
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.egg-info/
+venv/
+env/
+
+# Ignore migrations cache (optional)
+*/migrations/__pycache__/
+
+# --- ENVIRONMENT FILES ---
+.env
+*/.env
+
+# --- FRONTEND (React) ---
+node_modules/
+frontend/node_modules/.cache/
+build/
+dist/
+
+# --- OS / IDE FILES ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- TEST / COVERAGE FILES ---
+.coverage
+htmlcov/
+.tox/
+pytest_cache/

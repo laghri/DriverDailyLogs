@@ -15,20 +15,13 @@ class HOSCalculator:
         """
         segments = []
         remaining = total_distance_miles
-        # Simpler approach: chunk driving into segments up to 7 hours or until fuel
-        # We'll create chunks of driving hours by assuming average speed 60 mph
         avg_speed = 60.0
-        # Convert distance to approximate driving hours
         total_driving_hours = total_distance_miles / avg_speed if avg_speed else 0
-        # chunk hours to at most 7 hours of continuous drive before a rest/fuel
         max_drive_chunk = 7.0
-        # we also add fuel stops every ~1000 miles
         fuel_miles = 1000.0
         cumulative_distance = 0.0
 
-        # while there is distance left, create segments
         while remaining > 1e-3:
-            # distance until next fuel
             next_fuel_distance = fuel_miles - (cumulative_distance % fuel_miles)
             dist_for_chunk = min(remaining, next_fuel_distance)
             hours_for_chunk = dist_for_chunk / avg_speed
@@ -55,6 +48,5 @@ class HOSCalculator:
             driven_hours = sum(s["duration"] for s in segments if s["type"] == "DRIVE")
             if driven_hours >= 8.0:
                 segments.append({"type": "REST", "duration": 0.5, "distance": 0})
-                # reset driven hours counting
-                # (for this simple helper we won't subtract; keep moving forward)
+        
         return segments

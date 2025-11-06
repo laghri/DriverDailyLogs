@@ -64,8 +64,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 STATIC_URL = "/static/"
-
-# CORS (for local dev allow all, lock down in prod)
 CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
